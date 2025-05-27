@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera test</title>
+</head>
+<body>
+  <button id="start">カメラ起動</button>
+  <video id="video" autoplay playsinline width="320" height="240"></video>
+
+  <script>
+    document.getElementById('start').addEventListener('click', () => {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById('video').srcObject = stream;
+        })
+        .catch(err => {
+          alert('カメラ許可エラー: ' + err);
+          console.error(err);
+        });
+    });
+  </script>
+</body>
+</html>
