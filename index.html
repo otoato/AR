@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <title>AR Example</title>
@@ -14,22 +14,22 @@
   <body>
     <a-scene
       id="ar-scene"
-      mindar-image="imageTargetSrc: ./mind/targets.mind;"
-      embedded
+      mindar-image="imageTargetSrc: ./mind/targets.mind"
       color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
+      embedded
+      renderer="colorManagement: true, physicallyCorrectLights: true"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
       <a-assets>
-        <a-asset-item id="audio" src="./audio/sample.mp3"></a-asset-item>
+        <a-asset-item id="beep" src="./audio/sample.mp3"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-box position="0 0.1 0" material="color: red;"></a-box>
-        <a-sound src="#audio" autoplay="true"></a-sound>
+        <a-sound src="#beep" autoplay="true"></a-sound>
       </a-entity>
     </a-scene>
   </body>
